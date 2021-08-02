@@ -22,6 +22,16 @@ export const ButtonStyles = {
         boxShadow: "md"
       }
     }),
+    secondaryOutline: (props) => ({
+      bg: 'transparent',
+      border: '1px solid',
+      borderColor: 'secondary',
+      color: 'secondary',
+      _hover: {
+        boxShadow: 'md',
+        transform: 'scale(1.02)'
+      }
+    }),
     warning: (props) => ({
       bg: "warning",
       color: "white",

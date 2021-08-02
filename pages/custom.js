@@ -23,6 +23,9 @@ export default function CustomPage() {
         <Button variant="secondary">
           Secondary Color
         </Button>
+        <Button variant="secondaryOutline">
+          Secondary Outline
+        </Button>
         <Button variant="warning">
           Warning Color
         </Button>
