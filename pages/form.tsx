@@ -13,8 +13,12 @@ import {
 } from "@chakra-ui/react"
 
 export default function FormExample() {
+  const submit = (e) => {
+    e.preventDefault();
+  }
+
   return (
-    <form action="submit">
+    <form action="submit" onSubmit={submit}>
       <Stack space={3} >
         <FormControl isRequired>
           <FormLabel>First name</FormLabel>
@@ -50,12 +54,13 @@ export default function FormExample() {
           type="submit"
           variant="solid"
           colorScheme="blue"
-        >
-          Sign Up
-        </Button>
-        <FormControl>
+          boxShadow="sm"
+          _hover={{ boxShadow: 'md' }}
+          _active={{ boxShadow: 'lg' }}
 
-        </FormControl>
+        >
+          Sign Up!
+        </Button>
       </Stack>
     </form>
   )
