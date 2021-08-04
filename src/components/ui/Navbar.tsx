@@ -4,11 +4,9 @@ import {
   Stack,
   useColorMode,
   IconButton,
-  Box,
-  Image,
+  Button,
 } from '@chakra-ui/react';
 import Link from 'next/link';
-import { useRouter } from 'next/router';
 
 
 export default function Navbar() {
@@ -49,9 +47,7 @@ export default function Navbar() {
         >
           Switch Mode
         </IconButton>
-
       </Stack>
-
     </Flex>
   )
 }
