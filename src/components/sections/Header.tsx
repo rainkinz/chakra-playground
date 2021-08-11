@@ -99,6 +99,9 @@ export default function Header({ props }: { props?: any }) {
               Sign Up
             </Button>
           </MenuItem>
+          <Button size="sm" onClick={toggleColorMode}>
+            Toggle Mode
+          </Button>
         </Flex>
       </Box>
 
