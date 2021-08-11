@@ -3,12 +3,13 @@ import { Box, Image } from "@chakra-ui/react";
 
 interface Props {
   boxSize: number
+  mb?: number
+  mx?: number | "auto"
+  maxW?: string
 }
 
-export default function Logo({ boxSize }: Props) {
+export default function Logo({ maxW, boxSize, mb = 0, mx = 0 }: Props) {
   return (
-    <Box boxSize={boxSize} >
-      <Image src="/images/dog.png" />
-    </Box>
+    <Image boxSize={boxSize} maxW={maxW} mx={mx} mb={mb} src="/images/dog.png" />
   );
 }

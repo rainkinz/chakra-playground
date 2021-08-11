@@ -1,5 +1,7 @@
-import { ReactElement, ReactNode, useState } from "react";
+import { ReactNode, useState } from "react";
 import { Box, Flex, Link, Text, useColorMode, Button } from "@chakra-ui/react";
+import NextLink from 'next/link';
+
 import Logo from "../ui/Logo";
 
 type MenuItemProps = {
@@ -17,7 +19,11 @@ function MenuItem({ children, isLast = false, to = "/", ...rest }: MenuItemProps
       display="block"
       {...rest}
     >
-      <Link to={to}>{children}</Link>
+      <NextLink href={to} passHref>
+        <a>
+          {children}
+        </a>
+      </NextLink>
     </Text>
   )
 }
@@ -44,7 +50,7 @@ const MenuIcon = () => (
   </svg>
 );
 
-export default function Header({ props }) {
+export default function Header({ props }: { props?: any }) {
   const { colorMode, toggleColorMode } = useColorMode()
 
   const [show, setShow] = useState(false);
@@ -78,9 +84,8 @@ export default function Header({ props }) {
           pt={[4, 4, 0, 0]}
         >
           <MenuItem to="/">Home</MenuItem>
-          <MenuItem to="/how">How It works </MenuItem>
-          <MenuItem to="/features">Features </MenuItem>
-          <MenuItem to="/pricing">Pricing </MenuItem>
+          <MenuItem to="/custom">Custom</MenuItem>
+          <MenuItem to="/form">Form Example</MenuItem>
           <MenuItem to="/signup" isLast>
             <Button
               size="sm"
@@ -91,7 +96,7 @@ export default function Header({ props }) {
                 bg: ["primary.100", "primary.100", "primary.600", "primary.600"]
               }}
             >
-              Create Account
+              Sign Up
             </Button>
           </MenuItem>
         </Flex>
