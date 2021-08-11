@@ -1,18 +1,9 @@
 import { EmailIcon, LockIcon } from "@chakra-ui/icons";
 import {
   Button,
-  ButtonGroup,
   Center,
   Checkbox,
-  Divider,
-  FormControl,
-  FormErrorMessage,
-  FormHelperText,
-  FormLabel,
   Heading,
-  Input,
-  InputGroup,
-  InputLeftElement,
   Stack,
   Text,
   useColorModeValue,
@@ -20,38 +11,16 @@ import {
 } from "@chakra-ui/react"
 import { Form, Formik, useField } from "formik"
 import Logo from "../src/components/ui/Logo"
+import InputField from "../src/components/ui/InputField";
+import { object, string } from "yup";
 
-interface InputFieldProps {
-  name: string
-  label?: string,
-  leftAddon: any,
-  type: string
-}
-
-export function InputField(props: InputFieldProps): JSX.Element {
-  const { name, label, leftAddon, ...rest } = props;
-  const [field, meta] = useField(props);
-
-  return (
-    <FormControl
-      id={name}
-      isInvalid={!!meta.error && !!meta.touched}>
-      {label && (
-        <FormLabel mb="1" htmlFor={name}>
-          {label}
-        </FormLabel>
-      )}
-      <InputGroup>
-        {leftAddon && <InputLeftElement children={leftAddon} />}
-        <Input  {...field} {...rest} />
-      </InputGroup>
-      {meta.error && meta.touched && (
-        <FormErrorMessage>{meta.error}</FormErrorMessage>
-      )}
-    </FormControl>
-  )
-}
-
+const schema = object().shape({
+  email: string()
+    .email("Invalid Email")
+    .required("Please enter your email address"),
+  password: string()
+    .required("Please enter your password"),
+})
 
 export default function SignUpPage(): JSX.Element {
   const bg = useColorModeValue("gray.900", "gray.100")
@@ -78,6 +47,7 @@ export default function SignUpPage(): JSX.Element {
               actions.setSubmitting(false)
             }, 1000)
           }}
+          validationSchema={schema}
         >
           {({ isSubmitting }) => (
             <Form>
@@ -113,11 +83,11 @@ export default function SignUpPage(): JSX.Element {
         <Stack justify="center" color="gray.600" spacing="3">
           <Text as="div" textAlign="center">
             <span>Don't have an account? </span>
-            <Button colorScheme="purple" variant="link">
+            <Button variant="link">
               Sign Up
             </Button>
           </Text>
-          <Button colorScheme="purple" variant="link">
+          <Button variant="link">
             Forgot password?
           </Button>
         </Stack>
