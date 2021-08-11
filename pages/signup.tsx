@@ -1,4 +1,4 @@
-import { LockIcon } from "@chakra-ui/icons";
+import { EmailIcon, LockIcon } from "@chakra-ui/icons";
 import {
   Button,
   ButtonGroup,
@@ -12,7 +12,6 @@ import {
   Heading,
   Input,
   InputGroup,
-  InputLeftAddon,
   InputLeftElement,
   Stack,
   Text,
@@ -43,7 +42,7 @@ export function InputField(props: InputFieldProps): JSX.Element {
         </FormLabel>
       )}
       <InputGroup>
-        {leftAddon && <InputLeftAddon children={leftAddon} />}
+        {leftAddon && <InputLeftElement children={leftAddon} />}
         <Input  {...field} {...rest} />
       </InputGroup>
       {meta.error && meta.touched && (
@@ -61,7 +60,6 @@ export default function SignUpPage(): JSX.Element {
 
   return (
     <Center h="100vh" w="100vh">
-      <h1>{colorMode}</h1>
       <Stack boxShadow="md" p="20" rounded="md" >
         <Logo boxSize={8} mb={8} mx={"auto"} maxW="70px" />
         <Heading as="h1" fontSize="xl">
@@ -85,13 +83,17 @@ export default function SignUpPage(): JSX.Element {
             <Form>
               <Stack my="4" spacing="6" >
                 <InputField
+                  name="email"
+                  type="email"
+                  label="Email"
+                  leftAddon={<EmailIcon />}
+                />
+                <InputField
                   name="password"
                   type="password"
                   label="Password"
                   leftAddon={<LockIcon />}
                 />
-                <Input name="email" type="email" color={color} />
-                <Input name="password" type="password" />
                 <Checkbox>Keep me logged in</Checkbox>
 
                 <Button
