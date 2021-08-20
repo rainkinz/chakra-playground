@@ -1,5 +1,5 @@
 import React from "react";
-import { Box, Image } from "@chakra-ui/react";
+import { Flex, Image, Text } from "@chakra-ui/react";
 
 interface Props {
   boxSize: number
@@ -10,6 +10,9 @@ interface Props {
 
 export default function Logo({ maxW, boxSize, mb = 0, mx = 0 }: Props) {
   return (
-    <Image boxSize={boxSize} maxW={maxW} mx={mx} mb={mb} src="/images/dog.png" />
+    <Flex align="center">
+      <Image boxSize={boxSize} maxW={maxW} mx={mx} mb={mb} src="/images/dog.png" />
+      <Text>Kuripai</Text>
+    </Flex>
   );
 }

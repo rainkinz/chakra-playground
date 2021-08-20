@@ -5,7 +5,6 @@ import OldLayout from "../src/components/layout/OldLayout";
 import Landing from "../src/components/layout/Landing";
 
 
-
 function MyApp({ Component, pageProps }: AppProps) {
 	return (
 		<ChakraProvider resetCSS theme={customTheme}>
