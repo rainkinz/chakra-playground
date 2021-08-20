@@ -1,9 +1,9 @@
 import { ReactNode, useState } from "react";
-import { Box, Flex, Link, Text, useColorMode, Button } from "@chakra-ui/react";
+import { Box, Flex, Link, Text, useColorMode, Button, CloseButton, MenuButton } from "@chakra-ui/react";
 import NextLink from 'next/link';
 
 import Logo from "../ui/Logo";
-import { MoonIcon, SunIcon } from "@chakra-ui/icons";
+import { HamburgerIcon, MoonIcon, SunIcon } from "@chakra-ui/icons";
 
 type MenuItemProps = {
   to: string,
@@ -81,8 +81,8 @@ export default function Header({ props }: { props?: any }) {
 
       <Box display={{ base: "block", md: "none" }} onClick={toggleMenu} >
         {show ?
-          <CloseIcon bg={bg} color={color} /> :
-          <MenuIcon bg={bg} color={color} />
+          <CloseButton size="lg" /> :
+          <Button><HamburgerIcon /></Button>
         }
       </Box>
 
