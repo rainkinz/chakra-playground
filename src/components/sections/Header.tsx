@@ -1,9 +1,9 @@
 import { ReactNode, useState } from "react";
-import { Box, Flex, Link, Text, useColorMode, Button, CloseButton, MenuButton } from "@chakra-ui/react";
+import { Box, Flex, useColorMode, Button } from "@chakra-ui/react";
 import NextLink from 'next/link';
 
 import Logo from "../ui/Logo";
-import { HamburgerIcon, MoonIcon, SunIcon } from "@chakra-ui/icons";
+import { HamburgerIcon, CloseIcon, MoonIcon, SunIcon } from "@chakra-ui/icons";
 
 type MenuItemProps = {
   to: string,
@@ -20,38 +20,6 @@ function MenuItem({ children, to = "/", ...rest }: MenuItemProps) {
     </NextLink>
   )
 }
-
-interface IconProps {
-  color: string
-  bg: string
-}
-
-const CloseIcon = ({ bg, color }: IconProps) => (
-  <svg width="24"
-    viewBox="0 0 18 18"
-    xmlns="http://www.w3.org/2000/svg"
-    fill={bg}
-    color={color}
-  >
-    <title>Close</title>
-    <path
-      d="M9.00023 7.58599L13.9502 2.63599L15.3642 4.04999L10.4142 8.99999L15.3642 13.95L13.9502 15.364L9.00023 10.414L4.05023 15.364L2.63623 13.95L7.58623 8.99999L2.63623 4.04999L4.05023 2.63599L9.00023 7.58599Z"
-    />
-  </svg>
-);
-
-const MenuIcon = ({ bg, color }: IconProps) => (
-  <svg
-    width="24px"
-    viewBox="0 0 20 20"
-    xmlns="http://www.w3.org/2000/svg"
-    fill={bg}
-    color={color}
-  >
-    <title>Menu</title>
-    <path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z" />
-  </svg>
-);
 
 export default function Header({ props }: { props?: any }) {
   const { colorMode, toggleColorMode } = useColorMode()
@@ -79,9 +47,9 @@ export default function Header({ props }: { props?: any }) {
     >
       <Logo boxSize={8} />
 
-      <Box display={{ base: "block", md: "none" }} onClick={toggleMenu} >
+      <Box display={{ base: "block", md: "none" }} onClick={toggleMenu}>
         {show ?
-          <CloseButton size="lg" /> :
+          <Button><CloseIcon /></Button> :
           <Button><HamburgerIcon /></Button>
         }
       </Box>
