@@ -13,18 +13,11 @@ type MenuItemProps = {
 
 function MenuItem({ children, to = "/", ...rest }: MenuItemProps) {
   return (
-    <Text
-      mb={{ base: 4, md: 0 }}
-      mr={{ base: 0, md: 8 }}
-      display="block"
-      {...rest}
-    >
-      <NextLink href={to} passHref>
-        <a>
-          {children}
-        </a>
-      </NextLink>
-    </Text>
+    <NextLink href={to} passHref>
+      <Button as="a" variant="ghost">
+        {children}
+      </Button>
+    </NextLink>
   )
 }
 
@@ -108,7 +101,7 @@ export default function Header({ props }: { props?: any }) {
           <MenuItem to="/faetures">Features </MenuItem>
           <MenuItem to="/pricing">Pricing </MenuItem>
 
-          <Button onClick={toggleColorMode}>
+          <Button as="a" variant="ghost" onClick={toggleColorMode}>
             {colorMode == "dark" ? <SunIcon /> : <MoonIcon />}
           </Button>
         </Flex>
