@@ -3,6 +3,7 @@ import { Box, Flex, Link, Text, useColorMode, Button } from "@chakra-ui/react";
 import NextLink from 'next/link';
 
 import Logo from "../ui/Logo";
+import { MoonIcon, SunIcon } from "@chakra-ui/icons";
 
 type MenuItemProps = {
   isLast?: boolean,
@@ -107,6 +108,10 @@ export default function Header({ props }: { props?: any }) {
           <MenuItem to="/how">How It works </MenuItem>
           <MenuItem to="/faetures">Features </MenuItem>
           <MenuItem to="/pricing">Pricing </MenuItem>
+
+          <Button onClick={toggleColorMode}>
+            {colorMode == "dark" ? <SunIcon /> : <MoonIcon />}
+          </Button>
         </Flex>
       </Box>
     </Flex>
