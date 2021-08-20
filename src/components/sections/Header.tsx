@@ -6,17 +6,16 @@ import Logo from "../ui/Logo";
 import { MoonIcon, SunIcon } from "@chakra-ui/icons";
 
 type MenuItemProps = {
-  isLast?: boolean,
   to: string,
   children: ReactNode,
   rest?: any
 }
 
-function MenuItem({ children, isLast = false, to = "/", ...rest }: MenuItemProps) {
+function MenuItem({ children, to = "/", ...rest }: MenuItemProps) {
   return (
     <Text
-      mb={{ base: isLast ? 0 : 4, md: 0 }}
-      mr={{ base: 0, md: isLast ? 0 : 8 }}
+      mb={{ base: 4, md: 0 }}
+      mr={{ base: 0, md: 8 }}
       display="block"
       {...rest}
     >
