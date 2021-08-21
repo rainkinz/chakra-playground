@@ -45,7 +45,11 @@ export default function Header({ props }: { props?: any }) {
       color={color}
       {...props}
     >
-      <Logo boxSize={8} />
+      <NextLink href="/" passHref>
+        <a>
+          <Logo boxSize={8} />
+        </a>
+      </NextLink>
 
       <Box display={{ base: "block", md: "none" }} onClick={toggleMenu}>
         {show ?
