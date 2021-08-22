@@ -69,9 +69,9 @@ export default function Header({ props }: { props?: any }) {
           pt={[4, 4, 0, 0]}
         >
           <MenuItem to="/">Home</MenuItem>
-          <MenuItem to="/how">How It works </MenuItem>
-          <MenuItem to="/faetures">Features </MenuItem>
-          <MenuItem to="/pricing">Pricing </MenuItem>
+          <MenuItem to="/form">Form with Formik</MenuItem>
+          <MenuItem to="/custom">Custom</MenuItem>
+          <MenuItem to="/signup">Signup</MenuItem>
 
           <Button as="a" variant="ghost" onClick={toggleColorMode}>
             {colorMode == "dark" ? <SunIcon /> : <MoonIcon />}
