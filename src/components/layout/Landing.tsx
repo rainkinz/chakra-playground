@@ -1,6 +1,6 @@
 import React from "react"
 import { Flex } from "@chakra-ui/react"
-import Header from "../sections/Header"
+import NavBar from "../sections/NavBar"
 import Footer from "../sections/Footer"
 
 
@@ -11,9 +11,11 @@ export default function Landing(props) {
       align="center"
       maxW={{ xl: "1200px" }}
       m="0 auto"
+      pl={8}
+      pr={8}
       {...props}
     >
-      <Header />
+      <NavBar />
       {props.children}
       <Footer />
     </Flex>

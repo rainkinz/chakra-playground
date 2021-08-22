@@ -21,7 +21,7 @@ function MenuItem({ children, to = "/", ...rest }: MenuItemProps) {
   )
 }
 
-export default function Header({ props }: { props?: any }) {
+export default function NavBar({ props }: { props?: any }) {
   const { colorMode, toggleColorMode } = useColorMode()
 
   const [show, setShow] = useState(false);
@@ -40,7 +40,7 @@ export default function Header({ props }: { props?: any }) {
       justify="space-between"
       w="100%"
       mb={8}
-      p={4}
+      mt={8}
       bg={bg}
       color={color}
       {...props}
