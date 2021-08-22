@@ -10,6 +10,7 @@ export default function Landing(props) {
       direction="column"
       align="center"
       maxW={{ xl: "1200px" }}
+      h="100vh"
       m="0 auto"
       pl={8}
       pr={8}
